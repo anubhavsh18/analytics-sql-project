@@ -27,22 +27,6 @@ dim_products  ──┘
 
 ---
 
-## Project Structure
-```
-data-warehouse-analytics/
-├── sql/
-│   ├── 01_create_database.sql
-│   ├── 02_load_data.sql
-│   ├── 03_analysis_queries.sql
-│   ├── 07_change_over_time_analysis.sql
-│   ├── 08_cumulative_analysis.sql
-│   ├── 09_performance_analysis.sql
-│   └── 10_data_segmentation.sql
-└── README.md
-```
-
----
-
 ## What This Project Covers
 
 **Database Setup**
