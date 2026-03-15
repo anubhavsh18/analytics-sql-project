@@ -1,7 +1,7 @@
 # Data Warehouse Analytics
 
 A SQL Server-based data warehouse project built with a star schema design.
-Covers data ingestion, exploration, and business analytics using T-SQL.
+Covers data ingestion, exploration, and advanced business analytics using T-SQL.
 
 ---
 
@@ -23,6 +23,22 @@ Covers data ingestion, exploration, and business analytics using T-SQL.
 dim_customers ──┐
                 ├── fact_sales
 dim_products  ──┘
+```
+
+---
+
+## Project Structure
+```
+data-warehouse-analytics/
+├── sql/
+│   ├── 01_create_database.sql
+│   ├── 02_load_data.sql
+│   ├── 03_analysis_queries.sql
+│   ├── 07_change_over_time_analysis.sql
+│   ├── 08_cumulative_analysis.sql
+│   ├── 09_performance_analysis.sql
+│   └── 10_data_segmentation.sql
+└── README.md
 ```
 
 ---
@@ -54,6 +70,24 @@ dim_products  ──┘
 - 3 customers with fewest orders
 - Implemented using both `TOP N` and window functions (`ROW_NUMBER`)
 
+**Change Over Time Analysis**
+- Monthly and yearly sales trends
+- Unique customers and quantity sold over time
+- Date formatting using `YEAR()`, `DATETRUNC()`, and `FORMAT()`
+
+**Cumulative Analysis**
+- Running total of sales over time
+- Moving average price using window functions (`SUM OVER`, `AVG OVER`)
+
+**Performance Analysis (Year-over-Year)**
+- Yearly product sales compared to their historical average
+- Above/below average classification per product
+- Year-over-year sales change using `LAG()` window function
+
+**Data Segmentation**
+- Products grouped into cost ranges (Below 100, 100–500, 500–1000, Above 1000)
+- Customers segmented into VIP, Regular, and New based on spending and lifespan
+
 ---
 
 ## How to Run
@@ -61,10 +95,7 @@ dim_products  ──┘
 1. Open SQL Server Management Studio (SSMS)
 2. Update the file paths in the `BULK INSERT` statements to match
    your local CSV locations
-3. Run the scripts in order:
-   - `01_create_database.sql`
-   - `02_load_data.sql`
-   - `03_analysis_queries.sql`
+3. Run the scripts in order starting from `01_create_database.sql`
 
 ---
 
@@ -75,6 +106,7 @@ dim_products  ──┘
 - JOINs (LEFT JOIN)
 - GROUP BY and ORDER BY
 - CTEs (Common Table Expressions)
-- Window functions (ROW_NUMBER OVER)
-- DATEDIFF and GETDATE for date logic
+- Window functions (ROW_NUMBER, LAG, SUM OVER, AVG OVER)
+- DATEDIFF, DATETRUNC, GETDATE for date logic
+- CASE statements for classification and segmentation
 - INFORMATION_SCHEMA exploration
